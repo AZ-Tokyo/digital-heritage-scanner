@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-01-13
+
+### Fixed
+- UIレイアウトを改善：CSVエクスポートボタンとフッターを画面下部に固定し、リスト部分のみスクロールするように変更
+
 ## [1.0.2] - 2026-01-13
 
 ### Fixed
@@ -28,7 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - サイドパネル対応
 - プライバシーポリシー
 
-[Unreleased]: https://github.com/AZ-Tokyo/digital-heritage-scanner/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/AZ-Tokyo/digital-heritage-scanner/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.3
 [1.0.2]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.2
 [1.0.1]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.1
 [1.0.0]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.0
