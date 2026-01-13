@@ -20,9 +20,15 @@ npm run build
 
 ### 使用方法
 
+#### ポップアップで利用する場合
 1. ツールバーの拡張機能アイコンをクリック
 2. 「スキャン開始」ボタンをクリック
 3. 結果を確認し「CSVエクスポート」でダウンロード
+
+#### サイドパネルで利用する場合
+1. 拡張機能アイコンを右クリック →「サイドパネルで開く」
+2. または Chromeのサイドパネルボタンをクリックし「Digital Heritage Scanner」を選択
+3. ポップアップと同様に操作可能
 
 ## 機能
 
@@ -119,15 +125,21 @@ npm run release:major  # 破壊的変更 (1.0.0 → 2.0.0)
 
 ```
 digital-heritage-scanner/
+├── .github/
+│   └── workflows/
+│       ├── ci.yml         # CI (Test / Build)
+│       └── release.yml    # Release Automation
 ├── manifest.json          # Chrome Extension Manifest V3
 ├── package.json           # 依存関係・スクリプト
 ├── vite.config.ts         # Vite設定
+├── vitest.config.ts       # Vitest設定
 ├── tailwind.config.js     # Tailwind + デジタル庁テーマ
 ├── patterns.json          # デジタル遺産判定パターン (14カテゴリ)
 ├── popup.html             # Popup UI
+├── sidepanel.html         # Side Panel UI
 ├── icons/                 # 拡張機能アイコン (16/48/128px)
 ├── src/
-│   ├── popup.ts           # Popup UIロジック
+│   ├── popup.ts           # UIロジック (Popup/SidePanel共用)
 │   ├── styles.css         # Tailwind CSS
 │   ├── filter.ts          # パターンマッチングロジック
 │   ├── extractors/        # データ抽出ロジック
@@ -139,6 +151,7 @@ digital-heritage-scanner/
 │       └── filter.test.ts # ユニットテスト (17件)
 ├── scripts/
 │   └── generate-icons.mjs # アイコン生成スクリプト
+├── CHANGELOG.md           # 変更履歴
 ├── PRIVACY_POLICY.md      # プライバシーポリシー
 └── README.md
 ```
