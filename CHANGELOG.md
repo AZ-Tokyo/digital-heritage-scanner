@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2026-01-13
+## [1.0.1] - 2026-01-13
+
+### Fixed
+- 長いサービス名やURLによりレイアウトが崩れ横スクロールが発生する問題を修正
+- ポップアップフッターにサイドパネルを開くボタンを追加
 
 ### Added
 - 初回リリース
@@ -18,5 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - サイドパネル対応
 - プライバシーポリシー
 
-[Unreleased]: https://github.com/AZ-Tokyo/digital-heritage-scanner/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/AZ-Tokyo/digital-heritage-scanner/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.1
 [1.0.0]: https://github.com/AZ-Tokyo/digital-heritage-scanner/releases/tag/v1.0.0
