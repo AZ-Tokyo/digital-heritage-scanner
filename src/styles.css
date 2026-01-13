@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* デジタル庁デザインシステム キーカラー */
+:root {
+  /* Blue (Primary) - デジタル庁標準 */
+  --color-blue-900: #003399;
+  --color-blue-800: #0043aa;
+  --color-blue-700: #0055bb;
+  --color-blue-600: #0067cc;
+  --color-blue-500: #0079dd;
+  --color-blue-100: #e6f0ff;
+
+  /* Green (Success) */
+  --color-green-800: #1a8c4a;
+  --color-green-700: #22a85c;
+  --color-green-600: #28c46e;
+  --color-green-100: #e6f9ee;
+
+  /* Yellow (Warning) */
+  --color-yellow-100: #fff7e6;
+  --color-yellow-700: #b38600;
+}
+
 /* Custom styles for Chrome Extension Popup */
 body {
   font-family:

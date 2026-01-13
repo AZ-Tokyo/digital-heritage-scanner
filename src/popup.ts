@@ -58,7 +58,7 @@ function renderResults() {
           <div class="font-medium text-sm text-solid-gray-900">${escapeHtml(asset.name)}</div>
           <div class="flex items-center justify-between mt-1">
             <span class="text-xs text-solid-gray-500">${escapeHtml(asset.categoryName)}</span>
-            <span class="text-xs px-1.5 py-0.5 rounded ${getSourceBadgeClass(asset.source)}">${getSourceLabel(asset.source)}</span>
+            <span class="text-xs px-1.5 py-0.5 rounded" style="${getSourceBadgeStyle(asset.source)}">${getSourceLabel(asset.source)}</span>
           </div>
         </div>
       `
@@ -66,14 +66,14 @@ function renderResults() {
         .join('')
 }
 
-function getSourceBadgeClass(source: 'bookmark' | 'history' | 'cookie'): string {
+function getSourceBadgeStyle(source: 'bookmark' | 'history' | 'cookie'): string {
     switch (source) {
         case 'bookmark':
-            return 'bg-sea-100 text-sea-700'
+            return 'background-color: var(--color-blue-100); color: var(--color-blue-700)'
         case 'history':
-            return 'bg-forest-100 text-forest-700'
+            return 'background-color: var(--color-green-100); color: var(--color-green-700)'
         case 'cookie':
-            return 'bg-sun-100 text-sun-700'
+            return 'background-color: var(--color-yellow-100); color: var(--color-yellow-700)'
     }
 }
 
