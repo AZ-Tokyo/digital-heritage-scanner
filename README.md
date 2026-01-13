@@ -4,14 +4,22 @@ Chrome拡張機能でデジタル遺産候補を抽出し、CSV出力する。
 
 ## クイックスタート
 
-### インストール
+### インストール（一般ユーザー向け）
+
+1. [Releases](https://github.com/AZ-Tokyo/digital-heritage-scanner/releases) ページから最新の `digital-heritage-scanner-vX.X.X.zip` をダウンロードします。
+2. ダウンロードしたZIPファイルを解凍します。
+3. Chromeブラウザで `chrome://extensions` を開きます。
+4. 右上の「デベロッパーモード」をONにします。
+5. 「パッケージ化されていない拡張機能を読み込む」をクリックし、解凍したフォルダを選択します。
+
+### 開発者向けセットアップ
 
 ```bash
 npm install
 npm run build
 ```
 
-### Chromeへのロード
+### Chromeへのロード（開発時）
 
 1. `chrome://extensions` を開く
 2. 右上の「デベロッパーモード」を有効化
