@@ -148,6 +148,51 @@ describe('matchPatterns', () => {
             expect(result).toHaveLength(1)
             expect(result[0].category).toBe('adult')
         })
+
+        it('追加クリエイター支援(FANBOX)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://official.fanbox.cc/', title: 'Pixiv FANBOX', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('creator_support')
+        })
+
+        it('追加マッチングアプリ(Pairs)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://pairs.lv/', title: 'Pairs', source: 'cookie' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('dating')
+        })
+
+        it('追加教育(Udemy)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.udemy.com/', title: 'Udemy', source: 'bookmark' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('education')
+        })
+
+        it('追加ふるさと納税(さとふる)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.satofull.jp/', title: 'Satofull', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('hometown_tax')
+        })
+
+        it('追加生活インフラ(東京電力)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.tepco.co.jp/', title: 'TEPCO', source: 'bookmark' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('utilities')
+        })
     })
 
     describe('重複排除', () => {

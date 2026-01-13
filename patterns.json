@@ -330,8 +330,7 @@
                 "lancers.jp",
                 "coconala.com",
                 "admin.thebase.in",
-                "stores.jp",
-                "note.com"
+                "stores.jp"
             ]
         },
         {
@@ -350,6 +349,62 @@
                 "heyzo.com",
                 "1pondo.tv",
                 "myfans.jp"
+            ]
+        },
+        {
+            "id": "creator_support",
+            "name": "クリエイター支援",
+            "patterns": [
+                "fanbox.cc",
+                "patreon.com",
+                "ci-en.net",
+                "skeb.jp",
+                "note.com",
+                "fantia.jp"
+            ]
+        },
+        {
+            "id": "dating",
+            "name": "マッチング・婚活",
+            "patterns": [
+                "pairs.lv",
+                "tinder.com",
+                "tapple.me",
+                "omiai-jp.com",
+                "with.is",
+                "marrish.com",
+                "youbride.jp"
+            ]
+        },
+        {
+            "id": "education",
+            "name": "教育・自己啓発",
+            "patterns": [
+                "udemy.com",
+                "prog-8.com",
+                "globis.co.jp",
+                "schoo.jp",
+                "coursera.org"
+            ]
+        },
+        {
+            "id": "hometown_tax",
+            "name": "ふるさと納税",
+            "patterns": [
+                "satofull.jp",
+                "furusato-tax.jp",
+                "furunavi.jp"
+            ]
+        },
+        {
+            "id": "utilities",
+            "name": "生活インフラ",
+            "patterns": [
+                "tepco.co.jp",
+                "tokyo-gas.co.jp",
+                "kepco.co.jp",
+                "chuden.co.jp",
+                "energist.co.jp"
             ]
         }
     ]
