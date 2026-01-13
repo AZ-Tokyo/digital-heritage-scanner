@@ -49,6 +49,51 @@ describe('matchPatterns', () => {
             expect(result).toHaveLength(1)
             expect(result[0].category).toBe('crypto')
         })
+
+        it('インフラパターンにマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://console.aws.amazon.com/console/home', title: 'AWS Console', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('infrastructure')
+        })
+
+        it('公営競技パターンにマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://jra.jp/', title: 'JRA', source: 'bookmark' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('gambling')
+        })
+
+        it('クラウドソーシングパターンにマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.lancers.jp/', title: 'Lancers', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('crowdsourcing')
+        })
+
+        it('旅行パターンにマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://travel.rakuten.co.jp/', title: 'Rakuten Travel', source: 'cookie' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('travel')
+        })
+
+        it('追加ECパターン(ヤフオク)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://auctions.yahoo.co.jp/', title: 'Yahoo Auctions', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('ecommerce')
+        })
     })
 
     describe('重複排除', () => {

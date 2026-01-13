@@ -204,6 +204,24 @@
             ]
         },
         {
+            "id": "travel",
+            "name": "旅行・交通",
+            "patterns": [
+                "travel.rakuten.co.jp",
+                "jalan.net",
+                "ikyu.com",
+                "ana.co.jp",
+                "jal.co.jp",
+                "eki-net.com",
+                "expy.jp",
+                "jr-odekake.net",
+                "booking.com",
+                "agoda.com",
+                "airbnb.jp",
+                "expedia.co.jp"
+            ]
+        },
+        {
             "id": "ecommerce",
             "name": "EC・ショッピング",
             "patterns": [
@@ -217,7 +235,10 @@
                 "creema",
                 "dmm.com/shop",
                 "yodobashi",
-                "biccamera"
+                "biccamera",
+                "auctions.yahoo.co.jp",
+                "paypayfleamarket.yahoo.co.jp",
+                "fril.jp"
             ]
         },
         {
@@ -233,6 +254,55 @@
                 "orico",
                 "acom",
                 "promise"
+            ]
+        },
+        {
+            "id": "infrastructure",
+            "name": "ドメイン・サーバー・クラウド",
+            "patterns": [
+                "aws.amazon.com",
+                "console.aws.amazon.com",
+                "cloud.google.com",
+                "console.cloud.google.com",
+                "portal.azure.com",
+                "xserver.ne.jp",
+                "onamae.com",
+                "conoha.jp",
+                "sakura.ad.jp",
+                "sakura.ne.jp",
+                "heroku.com",
+                "vercel.com",
+                "netlify.com",
+                "cloudflare.com",
+                "value-domain.com",
+                "muumuu-domain.com"
+            ]
+        },
+        {
+            "id": "gambling",
+            "name": "公営競技・くじ",
+            "patterns": [
+                "jra.go.jp",
+                "jra.jp",
+                "netkeiba.com",
+                "keiba.rakuten.co.jp",
+                "oddspark.com",
+                "boatrace.jp",
+                "chariloto.com",
+                "takarakuji-official.jp",
+                "sportstoto-mizuhobank-co.jp"
+            ]
+        },
+        {
+            "id": "crowdsourcing",
+            "name": "クラウドソーシング・副業",
+            "patterns": [
+                "crowdworks.jp",
+                "lancers.jp",
+                "coconala.com",
+                "admin.thebase.in",
+                "stores.jp",
+                "note.com"
             ]
         }
     ]
