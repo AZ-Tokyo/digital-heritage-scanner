@@ -48,9 +48,18 @@
                     <span id="result-count" class="font-bold text-lg" style="color: var(--color-blue-700)">0</span>
                     件のデジタル遺産候補
                 </p>
-                <button id="rescan" class="text-xs underline focus:outline-none" style="color: var(--color-blue-700)">
-                    再スキャン
-                </button>
+                <div class="flex items-center gap-3">
+                    <select id="sort-order"
+                        class="text-xs border border-solid-gray-300 rounded px-2 py-1 bg-white text-solid-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer">
+                        <option value="category">カテゴリ順</option>
+                        <option value="name">サービス名順</option>
+                        <option value="source">検出元順</option>
+                    </select>
+                    <button id="rescan" class="text-xs underline focus:outline-none"
+                        style="color: var(--color-blue-700)">
+                        再スキャン
+                    </button>
+                </div>
             </div>
 
             <div id="result-list" class="flex-1 overflow-y-auto border border-solid-gray-200 rounded-lg mb-4 bg-white">

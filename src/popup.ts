@@ -2,7 +2,9 @@ import { extractBookmarks, extractHistory, extractCookies } from './extractors'
 import { matchPatterns } from './services/classifier'
 import type { MatchedAsset } from './types'
 
+type SortKey = 'category' | 'name' | 'source'
 let scannedAssets: MatchedAsset[] = []
+let currentSortKey: SortKey = 'category'
 
 // バージョン設定
 const versionEl = document.getElementById('app-version')
@@ -15,6 +17,11 @@ document.getElementById('start-scan')?.addEventListener('click', startScan)
 document.getElementById('export-csv')?.addEventListener('click', exportCsv)
 document.getElementById('rescan')?.addEventListener('click', startScan)
 document.getElementById('open-sidepanel')?.addEventListener('click', openSidePanel)
+document.getElementById('sort-order')?.addEventListener('change', (e) => {
+    currentSortKey = (e.target as HTMLSelectElement).value as SortKey
+    sortAssets()
+    renderResults()
+})
 
 // サイドパネル内ではサイドパネルボタンを隠す
 if (window.location.pathname.includes('sidepanel.html')) {
@@ -48,8 +55,8 @@ async function startScan() {
         const allItems = [...bookmarks, ...history, ...cookies]
         scannedAssets = matchPatterns(allItems)
 
-        // カテゴリごとにソート
-        scannedAssets.sort((a, b) => a.categoryName.localeCompare(b.categoryName, 'ja'))
+        // ソート実行
+        sortAssets()
 
         renderResults()
         showSection('result')
@@ -58,6 +65,30 @@ async function startScan() {
         alert('スキャンに失敗しました。権限を確認してください。')
         showSection('consent')
     }
+}
+
+function sortAssets() {
+    scannedAssets.sort((a, b) => {
+        switch (currentSortKey) {
+            case 'category':
+                // カテゴリ名 > サービス名 の順でソートするとより親切
+                return (
+                    a.categoryName.localeCompare(b.categoryName, 'ja') ||
+                    a.name.localeCompare(b.name, 'ja')
+                )
+            case 'name':
+                return a.name.localeCompare(b.name, 'ja')
+            case 'source': {
+                const priority = { bookmark: 1, history: 2, cookie: 3 }
+                return (
+                    priority[a.source] - priority[b.source] ||
+                    a.categoryName.localeCompare(b.categoryName, 'ja')
+                )
+            }
+            default:
+                return 0
+        }
+    })
 }
 
 function renderResults() {

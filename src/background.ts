@@ -20,6 +20,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // インストール時にサイドパネルの挙動を設定（アイコンクリック時はPopupを開くので、ここでの設定は不要だが念のため）
 chrome.runtime.onInstalled.addListener(() => {
-    // @ts-expect-error
+
     chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false })
 })
