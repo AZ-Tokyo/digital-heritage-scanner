@@ -223,8 +223,6 @@
                 "office.com",
                 "canva.com",
                 "figma.com",
-                "chatgpt",
-                "openai.com",
                 "github.com",
                 "atlassian",
                 "slack.com",
@@ -405,6 +403,44 @@
                 "kepco.co.jp",
                 "chuden.co.jp",
                 "energist.co.jp"
+            ]
+        },
+        {
+            "id": "ai_service",
+            "name": "AIサービス",
+            "patterns": [
+                "chatgpt",
+                "openai.com",
+                "claude.ai",
+                "anthropic.com",
+                "gemini.google.com",
+                "perplexity.ai",
+                "midjourney.com",
+                "stability.ai",
+                "deepl.com"
+            ]
+        },
+        {
+            "id": "ebook_manga",
+            "name": "電子書籍・漫画",
+            "patterns": [
+                "read.amazon.co.jp",
+                "books.rakuten.co.jp",
+                "kobobooks.com",
+                "ebookjapan.yahoo.co.jp",
+                "cmoa.jp",
+                "renta.papy.co.jp",
+                "booklive.jp",
+                "book.dmm.com",
+                "piccoma.com",
+                "manga.line.me",
+                "k-manga.jp",
+                "shonenjumpplus.com",
+                "pocket.shonenmagazine.com",
+                "oreilly.com",
+                "manning.com",
+                "packtpub.com",
+                "leanpub.com"
             ]
         }
     ]

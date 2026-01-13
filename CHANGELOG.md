@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **新カテゴリ**: `ai_service` (ChatGPT, Claude, Gemini等) と `ebook_manga` (Kindle, Kobo等) を追加し、パターン検出を拡充
+- **海外サービス対応**: O'Reilly, Manning などの海外技術書サービスを追加
+
 ## [1.2.0] - 2026-01-13
 
 ### Added
