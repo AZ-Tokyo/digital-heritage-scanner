@@ -8,7 +8,10 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src --ext .ts,.tsx",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "release:patch": "npm version patch && git push && git push --tags",
+    "release:minor": "npm version minor && git push && git push --tags",
+    "release:major": "npm version major && git push && git push --tags"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.28",

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Heritage Scanner</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+</head>
+
+<body class="min-h-screen bg-solid-gray-50 text-solid-gray-900">
+    <header class="px-4 py-3 sticky top-0 z-10" style="background-color: var(--color-blue-800)">
+        <h1 class="text-lg font-bold text-white">デジタル遺産スキャナー</h1>
+        <p class="text-xs" style="color: rgba(255, 255, 255, 0.8)">ブラウザデータからデジタル遺産候補を抽出</p>
+    </header>
+
+    <main class="p-4">
+        <!-- 同意確認セクション -->
+        <section id="consent-section">
+            <div class="rounded-lg p-3 mb-4 border"
+                style="background-color: var(--color-yellow-100); border-color: var(--color-yellow-700)">
+                <p class="text-sm text-solid-gray-700">
+                    <strong>データの取り扱いについて</strong><br />
+                    ブックマーク、閲覧履歴、Cookieからデジタル遺産候補を抽出します。
+                    すべてのデータはローカルでのみ処理され、外部に送信されません。
+                </p>
+            </div>
+            <button id="start-scan"
+                class="w-full text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+                style="background-color: var(--color-blue-700)"
+                onmouseover="this.style.backgroundColor='var(--color-blue-800)'"
+                onmouseout="this.style.backgroundColor='var(--color-blue-700)'">
+                スキャン開始
+            </button>
+        </section>
+
+        <!-- スキャン中セクション -->
+        <section id="scanning-section" class="hidden">
+            <div class="flex flex-col items-center justify-center py-8">
+                <div class="animate-spin h-10 w-10 border-4 border-t-transparent rounded-full mb-4"
+                    style="border-color: var(--color-blue-600); border-top-color: transparent"></div>
+                <span class="text-solid-gray-700 font-medium">スキャン中...</span>
+                <span class="text-xs text-solid-gray-500 mt-1">ブックマーク・履歴・Cookieを解析しています</span>
+            </div>
+        </section>
+
+        <!-- 結果表示セクション -->
+        <section id="result-section" class="hidden">
+            <div class="mb-4 flex items-center justify-between">
+                <p class="text-sm text-solid-gray-700">
+                    <span id="result-count" class="font-bold text-lg" style="color: var(--color-blue-700)">0</span>
+                    件のデジタル遺産候補
+                </p>
+                <button id="rescan" class="text-xs underline focus:outline-none" style="color: var(--color-blue-700)">
+                    再スキャン
+                </button>
+            </div>
+
+            <div id="result-list"
+                class="max-h-[calc(100vh-280px)] overflow-y-auto border border-solid-gray-200 rounded-lg mb-4 bg-white">
+                <!-- 結果リストがここに挿入 -->
+            </div>
+
+            <button id="export-csv"
+                class="w-full text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+                style="background-color: var(--color-green-700)"
+                onmouseover="this.style.backgroundColor='var(--color-green-800)'"
+                onmouseout="this.style.backgroundColor='var(--color-green-700)'">
+                CSVエクスポート
+            </button>
+        </section>
+    </main>
+
+    <footer
+        class="px-4 py-2 text-xs text-solid-gray-500 border-t border-solid-gray-200 flex justify-between fixed bottom-0 left-0 right-0 bg-solid-gray-50">
+        <span>v1.0.0</span>
+        <a href="PRIVACY_POLICY.md" target="_blank" class="hover:underline"
+            style="color: var(--color-blue-700)">プライバシーポリシー</a>
+    </footer>
+
+    <script type="module" src="./src/popup.ts"></script>
+</body>
+
+</html>

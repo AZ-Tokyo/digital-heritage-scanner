@@ -88,6 +88,22 @@ npm run lint         # ESLint実行
 npm run format       # Prettierでフォーマット
 ```
 
+### リリース
+
+1. `CHANGELOG.md` に変更内容を追記
+2. リリースコマンドを実行：
+
+```bash
+npm run release:patch  # バグ修正 (1.0.0 → 1.0.1)
+npm run release:minor  # 機能追加 (1.0.0 → 1.1.0)
+npm run release:major  # 破壊的変更 (1.0.0 → 2.0.0)
+```
+
+3. GitHub Actions が自動で：
+   - テスト・ビルド実行
+   - ZIP ファイル作成
+   - GitHub Releases に公開
+
 ### 技術スタック
 
 | 項目 | 技術 |
