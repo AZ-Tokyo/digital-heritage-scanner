@@ -7,6 +7,28 @@ let scannedAssets: MatchedAsset[] = []
 document.getElementById('start-scan')?.addEventListener('click', startScan)
 document.getElementById('export-csv')?.addEventListener('click', exportCsv)
 document.getElementById('rescan')?.addEventListener('click', startScan)
+document.getElementById('open-sidepanel')?.addEventListener('click', openSidePanel)
+
+// サイドパネル内ではサイドパネルボタンを隠す
+if (window.location.pathname.includes('sidepanel.html')) {
+    document.getElementById('open-sidepanel')?.classList.add('hidden')
+}
+
+async function openSidePanel() {
+    const windowId = chrome.windows.WINDOW_ID_CURRENT
+    // @ts-ignore: chrome.sidePanel is available in Chrome 116+
+    if (chrome.sidePanel && chrome.sidePanel.open) {
+        try {
+            // @ts-ignore
+            await chrome.sidePanel.open({ windowId })
+            window.close() // ポップアップを閉じる
+        } catch (error) {
+            console.error('Failed to open side panel:', error)
+        }
+    } else {
+        alert('このバージョンのChromeではサイドパネルを直接開くことができません。\nブラウザのサイドパネルメニューから開いてください。')
+    }
+}
 
 async function startScan() {
     showSection('scanning')
@@ -54,7 +76,7 @@ function renderResults() {
     listEl.innerHTML = scannedAssets
         .map(
             (asset) => `
-        <div class="px-3 py-2 border-b border-solid-gray-100 last:border-b-0 hover:bg-solid-gray-50">
+        <div class="px-3 py-2 border-b border-solid-gray-100 last:border-b-0 hover:bg-solid-gray-50 break-all">
           <div class="font-medium text-sm text-solid-gray-900">${escapeHtml(asset.name)}</div>
           <div class="flex items-center justify-between mt-1">
             <span class="text-xs text-solid-gray-500">${escapeHtml(asset.categoryName)}</span>
