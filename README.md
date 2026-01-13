@@ -160,7 +160,8 @@ digital-heritage-scanner/
 ├── scripts/
 │   └── generate-icons.mjs # アイコン生成スクリプト
 ├── CHANGELOG.md           # 変更履歴
-├── PRIVACY_POLICY.md      # プライバシーポリシー
+├── docs/
+│   └── PRIVACY_POLICY.md  # プライバシーポリシー
 └── README.md
 ```
 
@@ -168,7 +169,7 @@ digital-heritage-scanner/
 
 - すべてのデータ処理は**ローカルでのみ**実行
 - 外部サーバーへのデータ送信は**一切なし**
-- 詳細は [PRIVACY_POLICY.md](./PRIVACY_POLICY.md) を参照
+- 詳細は [PRIVACY_POLICY.md](docs/PRIVACY_POLICY.md) を参照
 
 ---
 
