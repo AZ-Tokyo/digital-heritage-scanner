@@ -14,7 +14,14 @@
                 "paypay-bank",
                 "smbctb",
                 "mizuhobank",
-                "bk.mufg"
+                "bk.mufg",
+                "jp-bank.japanpost.jp",
+                "smbc.co.jp",
+                "resonabank.co.jp",
+                "moneykit.net",
+                "gmo-aozora.com",
+                "bank-daiwa.co.jp",
+                "orixbank.co.jp"
             ]
         },
         {
@@ -30,7 +37,13 @@
                 "daiwa",
                 "nomura",
                 "au-kabucom",
-                "line-sec"
+                "line-sec",
+                "click-sec.com",
+                "okasan-online.co.jp",
+                "kabu.dmm.com",
+                "nomura.co.jp",
+                "daiwa.jp",
+                "smbcnikko.co.jp"
             ]
         },
         {
@@ -74,7 +87,19 @@
                 "nanaco",
                 "waon",
                 "id-credit",
-                "quicpay"
+                "quicpay",
+                "jreast.co.jp",
+                "mobilesuica.com",
+                "pasmo.co.jp",
+                "jr-odekake.net",
+                "pitapa.com",
+                "jrkyushu.co.jp",
+                "nimoca.jp",
+                "subway.city.fukuoka.lg.jp",
+                "edy.rakuten.co.jp",
+                "waon.net",
+                "nanaco-net.jp",
+                "pay.rakuten.co.jp"
             ]
         },
         {
@@ -91,7 +116,11 @@
                 "ecnavi",
                 "colleee",
                 "getmoney",
-                "warau"
+                "warau",
+                "dpoint.docomo.ne.jp",
+                "ponta.jp",
+                "vpoint.jp",
+                "tsite.jp"
             ]
         },
         {

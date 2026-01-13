@@ -94,6 +94,42 @@ describe('matchPatterns', () => {
             expect(result).toHaveLength(1)
             expect(result[0].category).toBe('ecommerce')
         })
+
+        it('追加電子マネー(Suica)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.mobilesuica.com/', title: 'Mobile Suica', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('payment')
+        })
+
+        it('追加銀行(ゆうちょ)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://direct.jp-bank.japanpost.jp/tp1web/U010101WAK.do', title: 'Yucho Direct', source: 'bookmark' }, // URLはダミー
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('banking')
+        })
+
+        it('追加証券(GMOクリック)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.click-sec.com/corp/guide/kabu/', title: 'GMO Click', source: 'cookie' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('securities')
+        })
+
+        it('追加ポイント(dポイント)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://dpoint.docomo.ne.jp/', title: 'dPoint', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('points')
+        })
     })
 
     describe('重複排除', () => {
