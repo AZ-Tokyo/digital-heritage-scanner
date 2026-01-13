@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **サイドパネル**: 結果リストがスクロールせず、フッターが画面外にはみ出すレイアウト崩れを修正 (`min-h-0` と `height: 100%` の適用)
+- **ビルド設定**: Tailwind CSSの設定ファイルパスを修正し、ビルド時にスタイルが適用されない問題を解決
+
+### Internal
+- **Config整理**: `vite.config.ts`, `tailwind.config.js` などの設定ファイルを `config/` ディレクトリに集約し、プロジェクトルートを整理
 
 ## [1.1.0] - 2026-01-13
 
