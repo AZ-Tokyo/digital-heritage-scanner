@@ -110,6 +110,14 @@ npm run release:major  # 破壊的変更 (1.0.0 → 2.0.0)
    - ZIP ファイル作成
    - GitHub Releases に公開
 
+### バージョン管理
+
+本プロジェクトは [Semantic Versioning 2.0.0](https://semver.org/lang/ja/) に準拠してバージョン管理を行っています。
+
+- **Major**: 互換性のない変更（破壊的変更）
+- **Minor**: 後方互換性のある機能追加
+- **Patch**: 後方互換性のあるバグ修正
+
 ### 技術スタック
 
 | 項目 | 技術 |
