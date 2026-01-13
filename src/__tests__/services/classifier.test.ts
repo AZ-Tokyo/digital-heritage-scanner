@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
-import { matchPatterns, normalizeUrl, inferServiceName } from '../filter'
-import type { ExtractedItem } from '../extractors/bookmarks'
+import { matchPatterns, normalizeUrl, inferServiceName } from '../../services/classifier'
+import type { ExtractedItem } from '../../types'
 
 describe('matchPatterns', () => {
     describe('カテゴリマッチング', () => {

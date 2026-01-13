@@ -1,5 +1,6 @@
 import { extractBookmarks, extractHistory, extractCookies } from './extractors'
-import { matchPatterns, type MatchedAsset } from './filter'
+import { matchPatterns } from './services/classifier'
+import type { MatchedAsset } from './types'
 
 let scannedAssets: MatchedAsset[] = []
 

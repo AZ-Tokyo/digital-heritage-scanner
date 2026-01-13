@@ -1,8 +1,4 @@
-export interface ExtractedItem {
-    url: string
-    title: string
-    source: 'bookmark' | 'history' | 'cookie'
-}
+import type { ExtractedItem } from '../types'
 
 export async function extractBookmarks(): Promise<ExtractedItem[]> {
     const tree = await chrome.bookmarks.getTree()

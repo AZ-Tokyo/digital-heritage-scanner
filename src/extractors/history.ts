@@ -1,4 +1,4 @@
-import type { ExtractedItem } from './bookmarks'
+import type { ExtractedItem } from '../types'
 
 export async function extractHistory(maxResults = 10000): Promise<ExtractedItem[]> {
     const historyItems = await chrome.history.search({

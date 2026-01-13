@@ -1,4 +1,4 @@
-import type { ExtractedItem } from './bookmarks'
+import type { ExtractedItem } from '../types'
 
 export async function extractCookies(): Promise<ExtractedItem[]> {
     const cookies = await chrome.cookies.getAll({})

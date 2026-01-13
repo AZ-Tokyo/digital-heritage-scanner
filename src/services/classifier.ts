@@ -1,23 +1,5 @@
-import patterns from '../patterns.json'
-import type { ExtractedItem } from './extractors/bookmarks'
-
-export interface MatchedAsset {
-    name: string
-    url: string
-    category: string
-    categoryName: string
-    source: 'bookmark' | 'history' | 'cookie'
-}
-
-interface PatternCategory {
-    id: string
-    name: string
-    patterns: string[]
-}
-
-interface PatternsData {
-    categories: PatternCategory[]
-}
+import patterns from '../data/patterns.json'
+import type { ExtractedItem, MatchedAsset, PatternsData } from '../types'
 
 const typedPatterns = patterns as PatternsData
 
