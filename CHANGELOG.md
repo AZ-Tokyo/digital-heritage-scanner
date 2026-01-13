@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-01-13
+
+### Added
+- **課金系カテゴリの拡充**: クリエイター支援、マッチングアプリ、オンライン教育、ふるさと納税、生活インフラの5カテゴリを追加
+- **共通**: カテゴリ定義ファイルを `src/data/patterns.json` として分離・管理
+
+### Changed
+- **リファクタリング**: ファイル構造を整理し、`src/services`, `src/data`, `src/types` に分割
+- **note.com**: カテゴリを `crowdsourcing` から `creator_support` へ移動
+
 ## [1.0.5] - 2026-01-13
 
 ### Added
