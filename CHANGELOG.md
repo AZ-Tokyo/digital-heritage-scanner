@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-01-13
+
+### Internal
+- **ファイル整理**: HTMLファイルを `pages/`、Markdownファイルを `docs/` に移動し、ルートディレクトリを整理
+
 ## [1.1.1] - 2026-01-13
 
 ### Fixed
