@@ -1,0 +1,239 @@
+{
+    "categories": [
+        {
+            "id": "banking",
+            "name": "ネット銀行",
+            "patterns": [
+                "rakuten-bank",
+                "netbk",
+                "japannetbank",
+                "jibunbank",
+                "aeonbank",
+                "sevenbank",
+                "sbishinseibank",
+                "paypay-bank",
+                "smbctb",
+                "mizuhobank",
+                "bk.mufg"
+            ]
+        },
+        {
+            "id": "securities",
+            "name": "証券・投資",
+            "patterns": [
+                "sbisec",
+                "rakuten-sec",
+                "monex",
+                "matsui",
+                "kabu.com",
+                "smbcnikko",
+                "daiwa",
+                "nomura",
+                "au-kabucom",
+                "line-sec"
+            ]
+        },
+        {
+            "id": "crypto",
+            "name": "暗号資産",
+            "patterns": [
+                "bitflyer",
+                "coincheck",
+                "bitbank",
+                "zaif",
+                "gmocoin",
+                "dmm.com/crypto",
+                "binance",
+                "bybit",
+                "bitpoint",
+                "sbivc"
+            ]
+        },
+        {
+            "id": "fx",
+            "name": "FX・CFD",
+            "patterns": [
+                "gaitame",
+                "dmm.com/fx",
+                "sbifxt",
+                "gmo-click",
+                "fxbroadnet",
+                "oanda"
+            ]
+        },
+        {
+            "id": "payment",
+            "name": "決済・電子マネー",
+            "patterns": [
+                "paypay",
+                "pay.rakuten",
+                "merpay",
+                "linepay",
+                "d-payment",
+                "aupay",
+                "nanaco",
+                "waon",
+                "id-credit",
+                "quicpay"
+            ]
+        },
+        {
+            "id": "points",
+            "name": "ポイントサイト",
+            "patterns": [
+                "pointtown",
+                "moppy",
+                "hapitas",
+                "point.rakuten",
+                "tsite",
+                "ponta",
+                "gpoint",
+                "ecnavi",
+                "colleee",
+                "getmoney",
+                "warau"
+            ]
+        },
+        {
+            "id": "gaming",
+            "name": "ゲーム",
+            "patterns": [
+                "steampowered",
+                "store.steampowered",
+                "nintendo",
+                "playstation",
+                "xbox",
+                "epicgames",
+                "ea.com",
+                "ubisoft",
+                "genshin",
+                "hoyoverse",
+                "square-enix",
+                "finalfantasyxiv",
+                "blizzard",
+                "activision",
+                "origin.com",
+                "gog.com",
+                "konami",
+                "bandainamco",
+                "capcom",
+                "sega",
+                "mihoyo"
+            ]
+        },
+        {
+            "id": "video_streaming",
+            "name": "動画配信",
+            "patterns": [
+                "netflix",
+                "primevideo",
+                "amazon.co.jp/gp/video",
+                "disneyplus",
+                "unext",
+                "hulu",
+                "abema",
+                "dazn",
+                "dmm.com",
+                "fod.fujitv",
+                "paravi",
+                "lemino",
+                "wowow",
+                "tver"
+            ]
+        },
+        {
+            "id": "music_streaming",
+            "name": "音楽配信",
+            "patterns": [
+                "spotify",
+                "music.apple",
+                "music.youtube",
+                "music.amazon",
+                "music.line",
+                "awa.fm",
+                "mora",
+                "recochoku"
+            ]
+        },
+        {
+            "id": "cloud_storage",
+            "name": "クラウドストレージ",
+            "patterns": [
+                "drive.google",
+                "dropbox",
+                "onedrive",
+                "icloud",
+                "box.com",
+                "evernote",
+                "notion.so"
+            ]
+        },
+        {
+            "id": "sns",
+            "name": "SNS",
+            "patterns": [
+                "twitter",
+                "x.com",
+                "facebook",
+                "instagram",
+                "tiktok",
+                "line.me",
+                "linkedin",
+                "threads.net",
+                "discord",
+                "pinterest",
+                "tumblr"
+            ]
+        },
+        {
+            "id": "subscription",
+            "name": "サブスクリプション",
+            "patterns": [
+                "adobe.com",
+                "microsoft365",
+                "office.com",
+                "canva.com",
+                "figma.com",
+                "chatgpt",
+                "openai.com",
+                "github.com",
+                "atlassian",
+                "slack.com",
+                "zoom.us",
+                "grammarly"
+            ]
+        },
+        {
+            "id": "ecommerce",
+            "name": "EC・ショッピング",
+            "patterns": [
+                "amazon.co.jp",
+                "rakuten.co.jp",
+                "shopping.yahoo",
+                "mercari",
+                "zozo",
+                "qoo10",
+                "minne",
+                "creema",
+                "dmm.com/shop",
+                "yodobashi",
+                "biccamera"
+            ]
+        },
+        {
+            "id": "insurance",
+            "name": "保険・クレジットカード",
+            "patterns": [
+                "lifenet-seimei",
+                "sbisonpo",
+                "jcb.co.jp",
+                "smbc-card",
+                "rakuten-card",
+                "vpass",
+                "orico",
+                "acom",
+                "promise"
+            ]
+        }
+    ]
+}
