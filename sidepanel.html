@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./src/styles.css" />
 </head>
 
-<body class="h-screen bg-solid-gray-50 text-solid-gray-900 flex flex-col overflow-hidden">
+<body class="h-full bg-solid-gray-50 text-solid-gray-900 flex flex-col overflow-hidden">
     <header class="px-4 py-3 shrink-0" style="background-color: var(--color-blue-800)">
         <h1 class="text-lg font-bold text-white">デジタル遺産スキャナー</h1>
         <p class="text-xs" style="color: rgba(255, 255, 255, 0.8)">ブラウザデータからデジタル遺産候補を抽出</p>
@@ -53,7 +53,8 @@
                 </button>
             </div>
 
-            <div id="result-list" class="flex-1 overflow-y-auto border border-solid-gray-200 rounded-lg mb-4 bg-white">
+            <div id="result-list"
+                class="flex-1 overflow-y-auto border border-solid-gray-200 rounded-lg mb-4 bg-white min-h-0">
                 <!-- 結果リストがここに挿入 -->
             </div>
 

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-01-13
+
+### Fixed
+- **サイドパネル**: 結果リストがスクロールせず、フッターが画面外にはみ出すレイアウト崩れを修正 (`min-h-0` と `height: 100%` の適用)
+
 ## [1.1.0] - 2026-01-13
 
 ### Added
