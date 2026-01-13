@@ -20,6 +20,10 @@
             "128": "icons/icon128.png"
         }
     },
+    "background": {
+        "service_worker": "src/background.ts",
+        "type": "module"
+    },
     "side_panel": {
         "default_path": "sidepanel.html"
     },

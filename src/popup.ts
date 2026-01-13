@@ -3,6 +3,12 @@ import { matchPatterns, type MatchedAsset } from './filter'
 
 let scannedAssets: MatchedAsset[] = []
 
+// バージョン設定
+const versionEl = document.getElementById('app-version')
+if (versionEl) {
+    versionEl.textContent = `v${chrome.runtime.getManifest().version}`
+}
+
 // イベントリスナー登録
 document.getElementById('start-scan')?.addEventListener('click', startScan)
 document.getElementById('export-csv')?.addEventListener('click', exportCsv)
@@ -15,19 +21,15 @@ if (window.location.pathname.includes('sidepanel.html')) {
 }
 
 async function openSidePanel() {
-    const windowId = chrome.windows.WINDOW_ID_CURRENT
-    // @ts-ignore: chrome.sidePanel is available in Chrome 116+
-    if (chrome.sidePanel && chrome.sidePanel.open) {
-        try {
-            // @ts-ignore
-            await chrome.sidePanel.open({ windowId })
+    // ユーザーアクションのコンテキストを維持しつつBackgroundへ依頼
+    chrome.runtime.sendMessage({ type: 'OPEN_SIDE_PANEL' }, (response) => {
+        if (response && response.success) {
             window.close() // ポップアップを閉じる
-        } catch (error) {
-            console.error('Failed to open side panel:', error)
+        } else {
+            // Background経由で失敗した場合や古いChromeの場合のフォールバック
+            alert('サイドパネルを開けませんでした。\nChromeのバージョンが古いか、設定で許可されていない可能性があります。')
         }
-    } else {
-        alert('このバージョンのChromeではサイドパネルを直接開くことができません。\nブラウザのサイドパネルメニューから開いてください。')
-    }
+    })
 }
 
 async function startScan() {
