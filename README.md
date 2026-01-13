@@ -1,116 +1,40 @@
-# AZ-Tokyo Asset Scanner - Chrome拡張機能
+# Digital Heritage Scanner
 
-Chrome拡張機能でデジタル遺産候補を抽出し、バックエンドのAssetモデルに対応するCSVを出力する。
+Chrome拡張機能でデジタル遺産候補を抽出し、CSV出力する。
 
-## 概要
+## クイックスタート
 
-プロファイルの詳細画面から遺産のスキャンができるようにする。
+### インストール
 
-- PCのロック解除済みを前提
-- PCのみ（スマホでの実装は行わない）
-- Chrome拡張機能として実装
-
-## 手動インストール手順
-
-1. **ビルド**
-   ```bash
-   npm install
-   npm run build
-   ```
-
-2. **Chromeにロード**
-   - `chrome://extensions` を開く
-   - 右上の「デベロッパーモード」を有効化
-   - 「パッケージ化されていない拡張機能を読み込む」をクリック
-   - `dist` フォルダを選択
-
-3. **使用方法**
-   - ツールバーの拡張機能アイコンをクリック
-   - 「スキャン開始」ボタンをクリック
-   - 結果を確認し「CSVエクスポート」でダウンロード
-
-## 開発環境 (Development)
-
-このプロジェクトは [Vite](https://vitejs.dev/) + [TypeScript](https://www.typescriptlang.org/) で開発します。
-
-### 前提条件
-- Node.js v22.x 以上
-- npm 10.x 以上
-
-### セットアップ
 ```bash
 npm install
-```
-
-### 開発サーバー起動 (HMR)
-```bash
-npm run dev
-```
-
-### ビルド
-```bash
 npm run build
 ```
 
-### テスト
-```bash
-npm run test
-```
+### Chromeへのロード
 
-## 技術スタック (Tech Stack)
+1. `chrome://extensions` を開く
+2. 右上の「デベロッパーモード」を有効化
+3. 「パッケージ化されていない拡張機能を読み込む」をクリック
+4. `dist` フォルダを選択
 
-- **Framework**: Chrome Extension Manifest V3
-- **Language**: TypeScript
-- **Bundler**: Vite (+ [@crxjs/vite-plugin](https://crxjs.dev/vite-plugin))
-- **Styling**: Tailwind CSS + [@digital-go-jp/tailwind-theme-plugin](https://www.npmjs.com/package/@digital-go-jp/tailwind-theme-plugin)
-- **Test**: Vitest (Unit Test)
-- **Linter/Formatter**: ESLint, Prettier
+### 使用方法
 
-## プロジェクト構成 (Structure)
+1. ツールバーの拡張機能アイコンをクリック
+2. 「スキャン開始」ボタンをクリック
+3. 結果を確認し「CSVエクスポート」でダウンロード
 
-```
-digital-heritage-scanner/
-├── manifest.json          # Manifest V3
-├── package.json           # Dependencies & Scripts
-├── vite.config.ts         # Vite Config
-├── tailwind.config.js     # Tailwind + デジタル庁テーマ
-├── patterns.json          # デジタル遺産判定パターン (14カテゴリ)
-├── popup.html             # Popup UI
-├── icons/                 # 拡張機能アイコン
-├── src/
-│   ├── popup.ts           # Popup UI Logic
-│   ├── styles.css         # Tailwind CSS
-│   ├── filter.ts          # Pattern Matching Logic
-│   ├── extractors/        # Data Extraction Logic
-│   │   ├── bookmarks.ts
-│   │   ├── history.ts
-│   │   ├── cookies.ts
-│   │   └── index.ts
-│   └── __tests__/         # Unit Tests
-│       └── filter.test.ts
-├── PRIVACY_POLICY.md
-└── README.md
-```
+## 機能
 
-## Assetモデル対応 (CSV Output)
+### データ抽出
 
-`backend/internal/model/asset.go` のフィールドに対応するCSVを出力:
+| 抽出元 | Chrome API | 抽出条件 |
+|--------|-----------|----------|
+| ブックマーク | `chrome.bookmarks` | 全件 |
+| 閲覧履歴 | `chrome.history` | 訪問回数3回以上 |
+| Cookie | `chrome.cookies` | ドメインをユニーク化 |
 
-| Asset Model Field | CSV Column | 説明 |
-|-------------------|------------|------|
-| `Name` | `name` | サービス名（自動推定） |
-| `URL` | `url` | サービスURL |
-| `IsInheritable` | `is_inheritable` | 空欄（ユーザーが後で判断） |
-
-## 抽出対象データ
-
-| データ種別 | Chrome API | 用途 |
-|-----------|-----------|------|
-| ブックマーク | `chrome.bookmarks` | 金融・サービスサイト特定 |
-| 閲覧履歴 | `chrome.history` | 利用頻度の高いサービス特定 |
-| Cookie | `chrome.cookies` | ログイン済みサービス特定 |
-
-## デジタル遺産候補カテゴリ
+### 対応カテゴリ (14種類)
 
 | カテゴリ | 判定キーワード例 |
 |---------|------------------|
@@ -129,7 +53,7 @@ digital-heritage-scanner/
 | EC・ショッピング | `amazon.co.jp`, `rakuten.co.jp`, `mercari` |
 | 保険・クレジットカード | `jcb.co.jp`, `smbc-card`, `rakuten-card` |
 
-## 出力CSV形式
+### CSV出力形式
 
 ```csv
 name,url,is_inheritable
@@ -138,14 +62,99 @@ SBI証券,https://www.sbisec.co.jp,
 Netflix,https://www.netflix.com,
 ```
 
-## Chrome Web Store規約への対応
+AZ-Tokyoバックエンドの `Asset` モデルに対応:
+
+| CSV Column | 説明 |
+|------------|------|
+| `name` | サービス名（自動推定） |
+| `url` | サービスURL |
+| `is_inheritable` | 空欄（ユーザーが後で判断） |
+
+## 開発
+
+### 前提条件
+
+- Node.js v22.x 以上
+- npm 10.x 以上
+
+### コマンド
+
+```bash
+npm install          # 依存関係インストール
+npm run dev          # 開発サーバー起動 (HMR)
+npm run build        # プロダクションビルド
+npm run test         # ユニットテスト実行
+npm run lint         # ESLint実行
+npm run format       # Prettierでフォーマット
+```
+
+### 技術スタック
+
+| 項目 | 技術 |
+|------|------|
+| Framework | Chrome Extension Manifest V3 |
+| Language | TypeScript |
+| Bundler | Vite + [@crxjs/vite-plugin](https://crxjs.dev/vite-plugin) |
+| Styling | Tailwind CSS + [@digital-go-jp/tailwind-theme-plugin](https://www.npmjs.com/package/@digital-go-jp/tailwind-theme-plugin) |
+| Test | Vitest |
+| Linter | ESLint, Prettier |
+
+### プロジェクト構成
+
+```
+digital-heritage-scanner/
+├── manifest.json          # Chrome Extension Manifest V3
+├── package.json           # 依存関係・スクリプト
+├── vite.config.ts         # Vite設定
+├── tailwind.config.js     # Tailwind + デジタル庁テーマ
+├── patterns.json          # デジタル遺産判定パターン (14カテゴリ)
+├── popup.html             # Popup UI
+├── icons/                 # 拡張機能アイコン (16/48/128px)
+├── src/
+│   ├── popup.ts           # Popup UIロジック
+│   ├── styles.css         # Tailwind CSS
+│   ├── filter.ts          # パターンマッチングロジック
+│   ├── extractors/        # データ抽出ロジック
+│   │   ├── bookmarks.ts   # ブックマーク抽出
+│   │   ├── history.ts     # 閲覧履歴抽出
+│   │   ├── cookies.ts     # Cookie抽出
+│   │   └── index.ts       # バレルエクスポート
+│   └── __tests__/
+│       └── filter.test.ts # ユニットテスト (17件)
+├── scripts/
+│   └── generate-icons.mjs # アイコン生成スクリプト
+├── PRIVACY_POLICY.md      # プライバシーポリシー
+└── README.md
+```
+
+## プライバシー
+
+- すべてのデータ処理は**ローカルでのみ**実行
+- 外部サーバーへのデータ送信は**一切なし**
+- 詳細は [PRIVACY_POLICY.md](./PRIVACY_POLICY.md) を参照
+
+---
+
+## 設計ドキュメント
+
+> 以下は初期設計時のドキュメントです。
+
+### 概要
+
+プロファイルの詳細画面から遺産のスキャンができるようにする。
+
+- PCのロック解除済みを前提
+- PCのみ（スマホでの実装は行わない）
+- Chrome拡張機能として実装
+
+### Chrome Web Store規約への対応
 
 - データエクスポートは拡張機能の**主目的として明示**
 - プライバシーポリシーの設置が**必須**
 - ユーザーへの**明示的な同意取得**をpopup UI内で実施
 
-## 親プロジェクト
+### 親プロジェクト
 
 [AZ-Tokyo/AZ-Tokyo](https://github.com/AZ-Tokyo/AZ-Tokyo)
-本拡張機能は上記プロジェクトの補助ツールとして開発されています。
 
+本拡張機能は上記プロジェクトの補助ツールとして開発されています。
