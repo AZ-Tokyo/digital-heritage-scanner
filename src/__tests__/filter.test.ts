@@ -70,6 +70,37 @@ describe('matchPatterns', () => {
             const result = matchPatterns(items)
             expect(result).toHaveLength(2)
         })
+
+        it('同一パターンにマッチする異なるサブドメインは集約される', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://stock.adobe.com/', title: 'Adobe Stock', source: 'bookmark' },
+                { url: 'https://commerce.adobe.com/', title: 'Adobe Commerce', source: 'history' },
+                { url: 'https://adobe.com/', title: 'Adobe', source: 'cookie' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            // より短いURL (adobe.com) が優先されることの確認
+            expect(result[0].url).toBe('https://adobe.com')
+        })
+    })
+
+    describe('ドメイン判定', () => {
+        it('後方一致で正しく判定される', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://stock.adobe.com/', title: 'Adobe Stock', source: 'bookmark' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+        })
+
+        it('類似ドメイン（完全一致・後方一致でない）はマッチしない', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://myadobe.com/', title: 'My Adobe', source: 'bookmark' }, // adobe.com を含むが後方一致ではない
+                { url: 'https://adobefake.com/', title: 'Fake', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(0)
+        })
     })
 
     describe('エッジケース', () => {
