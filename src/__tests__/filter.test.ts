@@ -130,6 +130,24 @@ describe('matchPatterns', () => {
             expect(result).toHaveLength(1)
             expect(result[0].category).toBe('points')
         })
+
+        it('追加アダルト(DLsite)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://www.dlsite.com/home', title: 'DLsite', source: 'history' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('adult')
+        })
+
+        it('追加アダルト(FC2)にマッチする', () => {
+            const items: ExtractedItem[] = [
+                { url: 'https://video.fc2.com/', title: 'FC2 Video', source: 'cookie' },
+            ]
+            const result = matchPatterns(items)
+            expect(result).toHaveLength(1)
+            expect(result[0].category).toBe('adult')
+        })
     })
 
     describe('重複排除', () => {

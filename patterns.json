@@ -333,6 +333,24 @@
                 "stores.jp",
                 "note.com"
             ]
+        },
+        {
+            "id": "adult",
+            "name": "アダルト・成人向け",
+            "patterns": [
+                "dlsite.com",
+                "fantia.jp",
+                "fc2.com",
+                "mgstage.com",
+                "caribbeancom.com",
+                "pornhub.com",
+                "xvideos.com",
+                "sod.co.jp",
+                "prestige-av.com",
+                "heyzo.com",
+                "1pondo.tv",
+                "myfans.jp"
+            ]
         }
     ]
 }
