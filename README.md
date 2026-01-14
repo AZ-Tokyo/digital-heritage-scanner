@@ -70,19 +70,16 @@ npm run build
 ### CSV出力形式
 
 ```csv
-name,url,is_inheritable
-楽天銀行,https://www.rakuten-bank.co.jp,
-SBI証券,https://www.sbisec.co.jp,
-Netflix,https://www.netflix.com,
+name,url
+楽天銀行,https://www.rakuten-bank.co.jp
+SBI証券,https://www.sbisec.co.jp
+Netflix,https://www.netflix.com
 ```
-
-AZ-Tokyoバックエンドの `Asset` モデルに対応:
 
 | CSV Column | 説明 |
 |------------|------|
 | `name` | サービス名（自動推定） |
 | `url` | サービスURL |
-| `is_inheritable` | 空欄（ユーザーが後で判断） |
 
 ## 開発
 

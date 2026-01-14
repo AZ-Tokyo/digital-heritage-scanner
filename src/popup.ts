@@ -145,8 +145,8 @@ function getSourceLabel(source: 'bookmark' | 'history' | 'cookie'): string {
 }
 
 function exportCsv() {
-    const header = 'name,url,is_inheritable\n'
-    const rows = scannedAssets.map((asset) => `"${escapeCsv(asset.name)}","${asset.url}",`).join('\n')
+    const header = 'name,url\n'
+    const rows = scannedAssets.map((asset) => `"${escapeCsv(asset.name)}","${asset.url}"`).join('\n')
 
     const csv = header + rows
     const bom = '\uFEFF' // UTF-8 BOM for Excel compatibility
