@@ -45,7 +45,7 @@ npm run build
 | 抽出元 | Chrome API | 抽出条件 |
 |--------|-----------|----------|
 | ブックマーク | `chrome.bookmarks` | 全件 |
-| 閲覧履歴 | `chrome.history` | 訪問回数3回以上 |
+| 閲覧履歴 | `chrome.history` | 定義済みパターンに一致 (訪問回数不問) |
 | Cookie | `chrome.cookies` | ドメインをユニーク化 |
 
 ### 対応カテゴリ (14種類)
@@ -56,16 +56,28 @@ npm run build
 | 証券・投資 | `sbisec`, `rakuten-sec`, `monex` |
 | 暗号資産 | `bitflyer`, `coincheck`, `binance` |
 | FX・CFD | `gaitame`, `dmm.com/fx`, `gmo-click` |
-| 決済・電子マネー | `paypay`, `linepay`, `merpay` |
+| 決済・電子マネー | `paypay`, `linepay`, `merpay`, `suica` |
 | ポイントサイト | `pointtown`, `moppy`, `hapitas` |
-| ゲーム | `steampowered`, `nintendo`, `playstation`, `epicgames` |
+| ゲーム | `steampowered`, `nintendo`, `playstation`, `genshin` |
 | 動画配信 | `netflix`, `primevideo`, `unext` |
 | 音楽配信 | `spotify`, `music.apple`, `music.youtube` |
 | クラウドストレージ | `drive.google`, `dropbox`, `onedrive` |
-| SNS | `x.com`, `facebook`, `instagram` |
-| サブスクリプション | `adobe.com`, `office.com`, `chatgpt` |
+| SNS | `x.com`, `facebook`, `instagram`, `line` |
+| サブスクリプション | `adobe.com`, `office.com`, `slack` |
 | EC・ショッピング | `amazon.co.jp`, `rakuten.co.jp`, `mercari` |
 | 保険・クレジットカード | `jcb.co.jp`, `smbc-card`, `rakuten-card` |
+| ドメイン・サーバー | `aws.amazon`, `google.cloud`, `xserver` |
+| 公営競技・くじ | `jra.jp`, `boatrace.jp`, `takarakuji` |
+| クラウドソーシング | `crowdworks`, `lancers`, `coconala` |
+| アダルト | `dlsite`, `fanza`, `pornhub` |
+| クリエイター支援 | `fanbox`, `patreon`, `note` |
+| マッチング・婚活 | `pairs`, `tinder`, `omiai` |
+| 教育・自己啓発 | `udemy`, `progate`, `schoo` |
+| ふるさと納税 | `satofull`, `furusato-tax` |
+| 生活インフラ | `tepco`, `tokyo-gas`, `energist` |
+| AIサービス | `chatgpt`, `claude`, `gemini` |
+| 電子書籍・漫画 | `kindle`, `kobo`, `ebookjapan` |
+| 旅行・交通 | `jalan`, `travel.rakuten`, `ana` |
 
 ### CSV出力形式
 
@@ -140,30 +152,32 @@ npm run release:major  # 破壊的変更 (1.0.0 → 2.0.0)
 digital-heritage-scanner/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml         # CI (Test / Build)
-│       └── release.yml    # Release Automation
+├── config/                # 設定ファイル集約
+│   ├── vite.config.ts     # Vite設定
+│   ├── vitest.config.ts   # Vitest設定
+│   ├── tailwind.config.js # Tailwind設定
+│   ├── postcss.config.js  # PostCSS設定
+│   └── eslint.config.js   # ESLint設定
 ├── manifest.json          # Chrome Extension Manifest V3
 ├── package.json           # 依存関係・スクリプト
-├── vite.config.ts         # Vite設定
-├── vitest.config.ts       # Vitest設定
-├── tailwind.config.js     # Tailwind + デジタル庁テーマ
-├── patterns.json          # デジタル遺産判定パターン (14カテゴリ)
-├── popup.html             # Popup UI
-├── sidepanel.html         # Side Panel UI
-├── icons/                 # 拡張機能アイコン (16/48/128px)
+├── pages/                 # UI用HTML
+│   ├── popup.html
+│   ├── sidepanel.html
+│   └── privacy.html
+├── icons/                 # 拡張機能アイコン
 ├── src/
-│   ├── popup.ts           # UIロジック (Popup/SidePanel共用)
-│   ├── styles.css         # Tailwind CSS
-│   ├── filter.ts          # パターンマッチングロジック
+│   ├── data/
+│   │   └── patterns.json  # 判定パターン定義 (26カテゴリ)
+│   ├── services/
+│   │   └── classifier.ts  # パターンマッチングロジック
 │   ├── extractors/        # データ抽出ロジック
-│   │   ├── bookmarks.ts   # ブックマーク抽出
-│   │   ├── history.ts     # 閲覧履歴抽出
-│   │   ├── cookies.ts     # Cookie抽出
-│   │   └── index.ts       # バレルエクスポート
-│   └── __tests__/
-│       └── filter.test.ts # ユニットテスト (17件)
+│   │   ├── bookmarks.ts
+│   │   ├── history.ts
+│   │   └── cookies.ts
+│   ├── types/             # 型定義
+│   ├── popup.ts           # UIロジック
+│   └── styles.css         # Tailwind CSS
 ├── scripts/
-│   └── generate-icons.mjs # アイコン生成スクリプト
 ├── CHANGELOG.md           # 変更履歴
 ├── docs/
 │   └── PRIVACY_POLICY.md  # プライバシーポリシー
